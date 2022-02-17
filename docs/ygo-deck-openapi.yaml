@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: ygo-deck
+  description: Application for viewing and building Yu-Gi-Oh decks.
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /health:
+    get:
+      responses:
+        200:
+          description: Healthy
+          content: {}
+
+  /api/cards:
+    get:
+      summary: Get all cards
+      description: Retrieves list of all cards
+      operationId: getAllCards
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+        404:
+          description: Not Found
+          content: {}
+
+components:
+  schemas:
+    Card:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - desc
+        - atk
+        - def
+        - level
+        - race
+        - attribute
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          description: Name of card
+        type:
+          type: string
+          description: Type of card
+        desc:
+          type: string
+          description: Description of card
+        atk:
+          type: integer
+          format: int64
+          description: Attack of card
+        def:
+          type: integer
+          format: int64
+          description: Defense of card
+        level:
+          type: integer
+          format: int64
+          description: Level of card
+        race:
+          type: string
+          description: Race of card
+        attribute:
+          type: string
+          description: Attribute of card
