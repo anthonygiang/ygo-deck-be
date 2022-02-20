@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: ygo-deck
   description: Application for viewing and building Yu-Gi-Oh decks.
-  version: 0.0.1
+  version: 0.0.2
 servers:
   - url: http://localhost:8080
 
@@ -61,15 +61,12 @@ components:
           description: Description of card
         atk:
           type: integer
-          format: int64
           description: Attack of card
         def:
           type: integer
-          format: int64
           description: Defense of card
         level:
           type: integer
-          format: int64
           description: Level of card
         race:
           type: string
