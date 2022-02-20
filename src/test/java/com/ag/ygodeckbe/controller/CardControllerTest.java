@@ -1,6 +1,7 @@
 package com.ag.ygodeckbe.controller;
 
 import com.ag.ygodeckbe.model.Card;
+import com.ag.ygodeckbe.service.CardService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class CardControllerTest {
         cards.add(card1);
         cards.add(card2);
 
-        when(cardService.findAll()).thenReturn(cards);
+        when(cardService.getAllCards()).thenReturn(cards);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/cards")
                 .contentType(MediaType.APPLICATION_JSON))
